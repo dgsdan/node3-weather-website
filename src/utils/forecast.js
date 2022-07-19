@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const forecast = (latitude, longitude, callback) => {
     const params = {
-        access_key: '81bb199421eb76eedcfcdfad83c597ed',
+        access_key: process.env.WEATHER_STACK_API_KEY,
         query: latitude + ',' + longitude
         // query: latitude
     };
@@ -17,7 +17,7 @@ const forecast = (latitude, longitude, callback) => {
             }
 
             // console.log(`statusCode: ${res.status}`);
-            console.log(`statusCode:`, res.data);
+            // console.log(`statusCode:`, res.data);
             const current = res.data.current;
             callback(undefined, `${current.weather_descriptions[0]}. It is currently ${current.temperature} degrees out. But it feels like ${current.feelslike} degrees out. The humidity is ${current.humidity}%.`);
         })

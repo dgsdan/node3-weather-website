@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const geocode = (address, callback) => {
     const params = {
-        access_key: 'a54ded528c8c0fa29d84116f84835f5f',
+        access_key: process.env.POSITION_STACK_API_KEY,
         query: address
     }
 
